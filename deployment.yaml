@@ -9,18 +9,18 @@ spec:
       app: nginx
   template:
     metadata:
-      label:
+      labels:
         app: nginx
-  spec:
-    container:
-    - name: mindtrack-container
-      image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
-      ports:
-      - containerPort: 80
-      resources:
-        requests:
-          cpu: "50m"
-          memory: "64Mi"
-        limits:
-          cpu: "100m"
-          memory: "128Mi"
+    spec:
+      containers: 
+      - name: mindtrack-container
+        image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
