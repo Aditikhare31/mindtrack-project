@@ -14,7 +14,7 @@ specification:
   spec:
     container:
     - name: mindtrack-container
-      image: adikhare31/mindtrack-project:latest
+      image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
       ports:
       - containerPort: 80
       resources:
