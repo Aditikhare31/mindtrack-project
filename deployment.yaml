@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mindtrack-deploy
+specification:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      label:
+        app: nginx
+  spec:
+    container:
+    - name: mindtrack-container
+      image: adikhare31/mindtrack-project:latest
+      ports:
+      - containerPort: 80
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "64Mi"
+        limits:
+          cpu: "100m"
+          memory: "128Mi"

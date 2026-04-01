@@ -9,12 +9,12 @@ phases:
   build:
     commands:
       - echo "Build Started"
-      - docker build -t mindtrack_nginx .
-      - docker run -d -p 3000:80 mindtrack_nginx
+      - docker build -t mindtrack-nginx .
+      - docker run -d -p 3000:80 mindtrack-nginx
 
   post_build:
     commands:
-      - docker tag mindtrack_nginx:latest adikhare31/mindtrack-project
+      - docker tag mindtrack-nginx:latest adikhare31/mindtrack-project
       - docker push adikhare31/mindtrack-project
       - echo "Image pushed to the docker hub repo"
 
