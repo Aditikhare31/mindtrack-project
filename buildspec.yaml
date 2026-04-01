@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - docker login -u adikhare31 -p PurvaManu_0302
+      - echo "Logged in to Docker Hub"
+
+  build:
+    commands:
+      - echo "Build Started"
+      - docker build -t mindtrack_nginx .
+      - docker run -d -p 3000:80 mindtrack_nginx
+
+  post_build:
+    commands:
+      - docker tag mindtrack_nginx:latest adikhare31/mindtrack-project
+      - docker push adikhare31/mindtrack-project
+      - echo "Image pushed to the docker hub repo"
+
+artifacts:
+  files:
+    - '**/*'
