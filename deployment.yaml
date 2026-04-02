@@ -12,11 +12,11 @@ spec:
       labels:
         app: nginx
     spec:
-      containers: 80 
+      containers: 
       - name: mindtrack-container
         image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         resources:
           requests:
             cpu: "50m"
