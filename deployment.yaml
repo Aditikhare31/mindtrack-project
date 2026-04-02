@@ -16,7 +16,7 @@ spec:
       - name: mindtrack-container
         image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000
         resources:
           requests:
             cpu: "50m"
