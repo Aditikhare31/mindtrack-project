@@ -10,7 +10,6 @@ phases:
     commands:
       - echo "Build Started"
       - docker build -t mindtrack-nginx .
-      - docker run -d -p 3000:80 mindtrack-nginx
 
   post_build:
     commands:
