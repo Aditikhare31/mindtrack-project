@@ -13,8 +13,8 @@ phases:
 
   post_build:
     commands:
-      - docker tag mindtrack-nginx:latest public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
-      - docker push public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
+      - docker tag mindtrack-nginx:latest 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
+      - docker push 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
       - echo "Image pushed to the docker hub repo"
 
 artifacts:
