@@ -12,7 +12,7 @@ spec:
       labels:
         app: nginx
     spec:
-      containers: 
+      containers: 80 
       - name: mindtrack-container
         image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
         ports:
