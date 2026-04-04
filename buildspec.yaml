@@ -4,18 +4,18 @@ phases:
   pre_build:
     commands:
       - docker login -u adikhare31 -p PurvaManu_0302
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/b0v5y0o9
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 299332719675.dkr.ecr.us-east-1.amazonaws.com
       - echo "Logged in to Docker Hub"
 
   build:
     commands:
       - echo "Build Started"
-      - docker build -t mindtrack-image .
+      - docker build -t mindtrack-node .
 
   post_build:
     commands:
-      - docker tag mindtrack-image:latest public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
-      - docker push public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
+      - docker tag mindtrack-node:latest 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
+      - docker push 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
       - echo "Image pushed to the docker hub repo"
 
 artifacts:
