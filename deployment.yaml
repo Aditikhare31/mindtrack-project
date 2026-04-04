@@ -15,6 +15,7 @@ spec:
       containers: 
       - name: mindtrack-container
         image: public.ecr.aws/b0v5y0o9/mindtrack-repo:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
         resources:
