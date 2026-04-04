@@ -1,5 +1,6 @@
-FROM nginx:alpine
-RUN rm -rf /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY dist/ /usr/share/nginx/html
+FROM node:18-alpine
+WORKDIR /app
+COPY dist/ /app
+RUN npm install -g serve
 EXPOSE 3000
+CMD ["serve", "-s", "dist"]
