@@ -9,11 +9,11 @@ phases:
   build:
     commands:
       - echo "Build Started"
-      - docker build -t mindtrack-nginx .
+      - docker build -t mindtrack-image .
 
   post_build:
     commands:
-      - docker tag mindtrack-nginx:latest 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
+      - docker tag mindtrack-image:latest 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
       - docker push 299332719675.dkr.ecr.us-east-1.amazonaws.com/mindtrack-repo:latest
       - echo "Image pushed to the docker hub repo"
 
