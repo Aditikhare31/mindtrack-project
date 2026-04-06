@@ -1,12 +1,12 @@
 **🚀 CI/CD Pipeline with AWS EKS, Docker & CodePipeline**
 This project demonstrates a complete end-to-end CI/CD pipeline for deploying a containerized application on AWS using:
 
-•	EC2 
-•	Docker 
-•	Amazon ECR 
-•	Amazon EKS 
-•	AWS CodeBuild 
-•	AWS CodePipeline 
+•	EC2  
+•	Docker  
+•	Amazon ECR  
+•	Amazon EKS  
+•	AWS CodeBuild  
+•	AWS CodePipeline  
 
 The pipeline automates building, pushing, and deploying the application to Kubernetes.
 ________________________________________
