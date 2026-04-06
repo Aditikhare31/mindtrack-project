@@ -107,14 +107,17 @@ After successful execution:
 •	✅ Kubernetes Deployment created 
 ![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/resources_1.png)
 
-•	✅ Service exposed via LoadBalancer 
+•	✅ Service exposed via LoadBalancer ARN
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/Loadbalancer_ARN.png)
+
 ________________________________________
 🌐 Access Application
 Get external URL:
 kubectl get svc
 •	Copy the EXTERNAL-IP from LoadBalancer 
 •	Open it in browser 
-![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/Loadbalancer_ARN.png)
+
+http://a8f6eb088a59548988aa39bce71e5e7e-813734255.us-east-1.elb.amazonaws.com:3000/
 ________________________________________
 
 Step 11: Go to CloudWatch
