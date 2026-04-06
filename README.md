@@ -19,7 +19,8 @@ ________________________________________
 ⚙️ Step-by-Step Implementation
 Step 1: Launch EC2 Instance
 •	Create an EC2 instance from AWS Console 
-![EC2 Instance](https://github.com/Aditikhare31/Trend_project/blob/main/trend_screenshots/ec2_instance.png)
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/EC2_instance.png)
 
 •	Configure Security Group Inbound Rules: 
 o	SSH (22) 
@@ -30,31 +31,43 @@ ________________________________________
 Step 2: Connect to EC2 & Clone Repository
 git clone https://github.com/Vennilavanguvi/Brain-Tasks-App.git
 cd Brain-Tasks-App
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/Cloning_repo.png)
+
 ________________________________________
 Step 3: Install Docker & Create Dockerfile to build the image
 sudo apt update
 sudo apt install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/docker_install.png)
+
 ________________________________________
 Step 4: Install eksctl & kubectl
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/eksctl_version.png)
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/kubectl_version.png)
+
 ________________________________________
 Step 5: Create EKS Cluster
-eksctl create cluster --name my-cluster --region ap-south-1
+eksctl create cluster --name my-cluster --region us-east-1
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/EKS_cluster.png)
+
 •	Attach required IAM roles for cluster access 
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/EKS_cluster_IAMroles.png)
 ________________________________________
 Step 6: Create ECR Repository
-aws ecr create-repository --repository-name your-repo-name
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/ECR_repo.png)
+
 •	Authenticate Docker to ECR 
-•	Tag and push the Docker image 
+•	Tag and push the Docker image in buildspec.yaml file
 ________________________________________
 Step 7: Create Kubernetes Manifests
 Create the following files:
 •	deployment.yaml 
 •	service.yaml 
-Apply them:
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
 ________________________________________
 Step 8: Setup CodeBuild
 •	Create buildspec.yml 
@@ -62,6 +75,11 @@ Step 8: Setup CodeBuild
 o	Source: GitHub 
 o	Environment: Managed image 
 o	IAM Role: With ECR & EKS permissions 
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/CodeBuild.png)
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/CodeBuild_config1.png)
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/CodeBuild_config2.png)
+
 ________________________________________
 Step 9: Attach IAM Role to CodeBuild
 Ensure permissions:
@@ -73,13 +91,22 @@ Step 10: Create CodePipeline
 Pipeline stages:
 1.	Source – GitHub repository 
 2.	Build – CodeBuild project 
-3.	Deploy – Kubernetes (EKS) 
+3.	Deploy – Kubernetes (EKS)
+
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/CodePipeline.png)
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/CodePipeline_conf.png)
 ________________________________________
 ✅ Deployment Output
 After successful execution:
 •	✅ Docker image built successfully 
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/docker_image.png)
+
 •	✅ Image pushed to Amazon ECR 
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/image_push.png)
+
 •	✅ Kubernetes Deployment created 
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/resources_1.png)
+
 •	✅ Service exposed via LoadBalancer 
 ________________________________________
 🌐 Access Application
@@ -87,11 +114,9 @@ Get external URL:
 kubectl get svc
 •	Copy the EXTERNAL-IP from LoadBalancer 
 •	Open it in browser 
-________________________________________
-📊 Result
-✔ Fully automated CI/CD pipeline
-✔ Scalable Kubernetes deployment
-✔ Cloud-native architecture
-✔ Continuous delivery enabled
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/Loadbalancer_ARN.png)
 ________________________________________
 
+Step 11: Go to CloudWatch
+Check logs for build and deploy
+![EC2 Instance](https://github.com/Aditikhare31/mindtrack-project/blob/main/MindTrack/CloudWatch_logs.png)
